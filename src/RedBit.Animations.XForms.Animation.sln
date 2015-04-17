@@ -13,7 +13,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RedBit.Animations.XForms.An
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation.projitems*{93ac4a48-b55c-4392-bdce-f7aa4df97f30}*SharedItemsImports = 4
+		RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation.projitems*{fb773b41-682d-492a-954a-d0f685bbb165}*SharedItemsImports = 4
 		RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation.projitems*{5d3b0bf2-3d48-47d8-9b7c-0a8e9459f543}*SharedItemsImports = 13
+		RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation\RedBit.Animations.XForms.Animation.projitems*{222efd84-667b-4768-9a9d-3bcaef574268}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

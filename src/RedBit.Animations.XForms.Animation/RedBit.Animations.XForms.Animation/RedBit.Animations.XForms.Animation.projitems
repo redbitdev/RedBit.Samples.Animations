@@ -9,6 +9,8 @@
     <Import_RootNamespace>RedBit.Animations.XForms.Animation</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AnimatedButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
   </ItemGroup>
 </Project>
