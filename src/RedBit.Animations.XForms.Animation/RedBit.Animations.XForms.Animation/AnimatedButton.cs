@@ -32,7 +32,9 @@ namespace RedBit.Animations.XForms.Animation
                 FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
                 Text = text,
                 TextColor = Color.White,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                XAlign = TextAlignment.Center
             };
             _layout.Children.Add(_textLabel);
 
