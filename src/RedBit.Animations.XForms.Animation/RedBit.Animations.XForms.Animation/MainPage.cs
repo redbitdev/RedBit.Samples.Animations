@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace RedBit.Animations.XForms.Animation
 {
@@ -119,20 +120,41 @@ namespace RedBit.Animations.XForms.Animation
 		/// <summary>
 		/// Animates the panel in our out depending on the state
 		/// </summary>
-		private void AnimatePanel(){
+		private async void AnimatePanel(){
 
 			// swap the state
 			this.PanelShowing = !PanelShowing;
 
 			// show or hide the panel
 			if (this.PanelShowing) {
-				var rect = new Rectangle(_layout.Width - _panel.Width, _panel.Y, _panel.Width, _panel.Height);
-				this._panel.LayoutTo (rect, 250, Easing.CubicIn);
-			} else {
-				var rect = new Rectangle(_layout.Width, _panel.Y, _panel.Width, _panel.Height);
-				this._panel.LayoutTo (rect, 200, Easing.CubicOut);
-			}
+				// hide all children
+				foreach (var child in _panel.Children) {
+					child.Scale = 0;
+				}
 
+				// layout the panel to slide out
+				var rect = new Rectangle(_layout.Width - _panel.Width, _panel.Y, _panel.Width, _panel.Height);
+				await this._panel.LayoutTo (rect, 250, Easing.CubicIn);
+
+				// scale in the children for the panel
+				foreach (var child in _panel.Children) {
+					await child.ScaleTo (1.2, 50, Easing.CubicIn);
+					await child.ScaleTo (1, 50, Easing.CubicOut);
+				}
+			} else {
+				
+
+				// layout the panel to slide in
+				var rect = new Rectangle(_layout.Width, _panel.Y, _panel.Width, _panel.Height);
+				await this._panel.LayoutTo (rect, 200, Easing.CubicOut);
+
+				// hide all children
+				foreach (var child in _panel.Children) {
+					child.Scale = 0;
+				}
+			}
 		}
+
+
     }
 }
