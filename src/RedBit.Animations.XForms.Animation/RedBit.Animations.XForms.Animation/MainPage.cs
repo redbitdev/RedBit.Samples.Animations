@@ -69,6 +69,7 @@ namespace RedBit.Animations.XForms.Animation
 						},
 						new AnimatedButton ("Option 1", () => {
 							AnimatePanel();
+							ChangeBackgroundColor();
 						}),
 						new AnimatedButton ("Option 2", () => {
 							AnimatePanel();
@@ -155,6 +156,37 @@ namespace RedBit.Animations.XForms.Animation
 			}
 		}
 
+		/// <summary>
+		/// Changes the background color of the relative layout
+		/// </summary>
+		private void ChangeBackgroundColor(){
+			var repeatCount = 0;
+			this._layout.Animate (
+				// set the name of the animation
+				name: "changeBG", 
 
+				// create the animation object and callback
+				animation: new Xamarin.Forms.Animation((val) => {
+					// val will be a from 0 - 1 and can use that to set a BG color
+					if (repeatCount == 0)
+						this._layout.BackgroundColor = Color.FromRgb (1 - val, 1 - val, 1 - val);
+					else
+						this._layout.BackgroundColor = Color.FromRgb (val, val, val);
+				}), 
+
+				// set the length
+				length: 750,
+
+				// set the repeat action to update the repeatCount
+				finished: (val, b) => {
+					repeatCount++;
+				},
+
+				// determine if we should repeat
+				repeat: () => {
+					return repeatCount < 1;
+				}
+			);
+		}
     }
 }
